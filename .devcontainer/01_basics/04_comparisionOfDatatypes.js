@@ -23,3 +23,5 @@ console.log(undefined < 0);
 //strict check === also checking datatype
 
 console.log("2"===2);
+
+//in js different datatypes comparision allowed
