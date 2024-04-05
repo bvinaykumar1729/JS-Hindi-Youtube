@@ -76,5 +76,5 @@ userTwo.email="hitesh@google.com";
 
 console.log(userOne.email);
 console.log(userTwo.email);
-
+//call by reference and call by value
 
