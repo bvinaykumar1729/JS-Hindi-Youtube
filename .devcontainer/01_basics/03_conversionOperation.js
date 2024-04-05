@@ -64,5 +64,5 @@ let gameCounter = 100
 gameCounter++;
 console.log(gameCounter);
 
-let gameCounter1=100;
-console.log(gameCounter1++);
+//let gameCounter1=100;
+//console.log(gameCounter1++);
