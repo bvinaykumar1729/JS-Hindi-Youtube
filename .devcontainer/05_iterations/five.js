@@ -35,5 +35,15 @@ const myCoding = [
 ]
 
 myCoding.forEach((item)=>{
-    console.log(item.languageName);
+    // console.log(item.languageName);
 })
+
+
+// forEach it does not return anything
+// const values = coding.forEach( (item) => {
+//     // console.log(item);
+//     return item
+// })
+
+// console.log(values);
+
