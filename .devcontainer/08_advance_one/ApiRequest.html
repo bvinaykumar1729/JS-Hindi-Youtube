@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            box-sizing: border-box;
+        }
+        .para-con{
+            margin:20px;
+            padding-top:15px;
+        }
+  .but{
+    background-color: aqua;
+    font-size: 10px;
+    padding:4px;
+    margin:2px 0 5px 250px;
+    border-radius: 100%;
+    
+   
+  
+  }
+  .img-con{
+    /* background-color: */
+    border:solid 4px #808080;
+    margin:25px 0 5px 150px;
+    height:300px;
+    width:300px;
+    border-radius: 5px;
+  }
+  .profile-img{
+    height:250px;
+     width:100%;
+     object-fit: cover;
+   
+  }
+  .follow-con{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:bold ;
+    text-align: center;
+  }
+ 
+
+    </style>
+</head>
+<body style="color: #212121;">
+    <nav class="para-con">
+    Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</nav>
+<br>
+<div class="img-con">
+    <img src="" alt="" class="profile-img">
+   <div class="p-follow"><p class="follow-con"></p></div> 
+</div>
+<button class="but">click</button>
+</body>
+<script>
+ const requestUrl = 'https://api.github.com/users/hiteshchoudhary' 
+ const  xhr =  new XMLHttpRequest();
+xhr.open('GET',requestUrl)
+xhr.onreadystatechange = function(){
+    console.log(xhr.readyState);
+    if(xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data);
+        console.log(data);
+        console.log(data.followers);
+        console.log(data.avatar_url);
+        // const Numfollows = data.followers;
+        const proImg = data.avatar_url;
+         document.querySelector('.but').addEventListener('click',()=>{
+            //  document.querySelector('.img-con').innerHTML = `<img src = "${proImg}" alt = "">`;
+             document.querySelector('.profile-img').src= proImg
+             // document.querySelector('.follow-con').innerHTML = `<h1>Followers ${data.followers}</h1>`;
+         document.querySelector('.follow-con').innerHTML =` Followers: ${data.followers}`;
+  
+         })
+         }
+}
+xhr.send();
+
+ 
+// when "response " is come from "url" it will be most of times "string" type
+</script>
+</html>
